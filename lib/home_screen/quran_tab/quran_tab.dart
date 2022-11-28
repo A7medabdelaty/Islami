@@ -15,6 +15,7 @@ class QuranTab extends StatelessWidget {
         child: Column(
           children: [
             Image.asset('assets/images/qur2an_screen_logo.png'),
+            const SizedBox(height: 10,),
             Column(
               children: [
                 tableHead('عدد الآيات', 'اسم السورة'),
@@ -54,7 +55,7 @@ Widget tableHead(String txt1, String txt2) {
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(3),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border(
@@ -92,7 +93,7 @@ Widget tableRow(String num, String name, int index, context) {
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(4),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border(

@@ -5,7 +5,7 @@ import 'package:islami/theme.dart';
 
 class SuraDetails extends StatefulWidget {
   const SuraDetails({Key? key}) : super(key: key);
-  static String routeName = 'sura tab';
+  static String routeName = 'sura details';
 
   @override
   State<SuraDetails> createState() => _SuraDetailsState();
@@ -52,7 +52,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                     'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
                     style: TextStyle(fontSize: 20, letterSpacing: 0.6),
                   ),
-                  Divider(),
+                  const Divider(),
                   Text(
                     textDirection: TextDirection.rtl,
                     newString,
