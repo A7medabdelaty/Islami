@@ -7,6 +7,7 @@ class MyTheme {
   static ThemeData lightTheme = ThemeData(
     textTheme: const TextTheme(bodyText1: TextStyle(fontSize: 30)),
     scaffoldBackgroundColor: Colors.transparent,
+    iconTheme: IconThemeData(color: MyTheme.mainGold,size: 35),
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0.0,
@@ -24,6 +25,7 @@ class MyTheme {
   );
 
   static ThemeData darkTheme = ThemeData(
+      iconTheme: IconThemeData(color: MyTheme.mainGold,size: 35),
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
