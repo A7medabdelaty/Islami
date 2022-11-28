@@ -1,27 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:islami/home_screen/quran_tab/sura_details.dart';
 import 'package:islami/theme.dart';
 
 import '../../constants.dart';
 
-class QuranTab extends StatelessWidget {
+class QuranTab extends StatefulWidget {
   const QuranTab({Key? key}) : super(key: key);
 
   @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
+  List<String> versesCount = [];
+
+  void getVersesCount() async {
+    String content =
+        await rootBundle.loadString('assets/quran_data/versesNumber.txt');
+    versesCount = content.split('\n');
+  }
+
+  @override
   Widget build(BuildContext context) {
+    if (versesCount.isEmpty) {
+      getVersesCount();
+      setState(() {});
+    }
     return SizedBox(
       width: double.infinity,
       child: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset('assets/images/qur2an_screen_logo.png'),
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             Column(
               children: [
                 tableHead('عدد الآيات', 'اسم السورة'),
                 ListView.builder(
-                  itemBuilder: (context, index) =>
-                      tableRow('286', suras[index], index, context),
+                  itemBuilder: (context, index) => tableRow(
+                      versesCount.isEmpty ? '0' : versesCount[index].trim(),
+                      suras[index],
+                      index,
+                      context),
                   itemCount: suras.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
