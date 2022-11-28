@@ -48,25 +48,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                       AssetImage('assets/images/icon_radio.png'),
-                      size: 35,
+                      size: 30,
                     ),
                     label: 'Radio'),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                       AssetImage('assets/images/icon_sebha.png'),
-                      size: 35,
+                      size: 30,
                     ),
                     label: 'Sebha'),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                       AssetImage('assets/images/icon_hadeth.png'),
-                      size: 35,
+                      size: 30,
                     ),
                     label: 'Hadeth'),
                 BottomNavigationBarItem(
                     icon: ImageIcon(
                       AssetImage('assets/images/icon_quran.png'),
-                      size: 35,
+                      size: 30,
                     ),
                     label: 'Quran'),
               ]),
