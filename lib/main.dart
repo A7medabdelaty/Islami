@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami/home_screen/quran_tab/quran_tab.dart';
+import 'package:islami/home_screen/home.dart';
 import 'package:islami/home_screen/quran_tab/sura_details.dart';
 import 'package:islami/theme.dart';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
       title: 'Islami',
-      home: const QuranTab(),
+      home: const HomeScreen(),
     );
   }
 }

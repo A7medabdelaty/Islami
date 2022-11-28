@@ -4,89 +4,32 @@ import 'package:islami/theme.dart';
 
 import '../../constants.dart';
 
-class QuranTab extends StatefulWidget {
+class QuranTab extends StatelessWidget {
   const QuranTab({Key? key}) : super(key: key);
 
   @override
-  State<QuranTab> createState() => _QuranTabState();
-}
-
-class _QuranTabState extends State<QuranTab> {
-  int currentIndex = 3;
-
-  @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Image.asset(
-          'assets/images/default_bg.png',
-          width: double.infinity,
-          fit: BoxFit.cover,
+    return SizedBox(
+      width: double.infinity,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.asset('assets/images/qur2an_screen_logo.png'),
+            Column(
+              children: [
+                tableHead('عدد الآيات', 'اسم السورة'),
+                ListView.builder(
+                  itemBuilder: (context, index) =>
+                      tableRow('286', suras[index], index, context),
+                  itemCount: suras.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                )
+              ],
+            )
+          ],
         ),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: const Text(
-              'إسلامي',
-            ),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-              onTap: (index) {
-                currentIndex = index;
-                setState(() {});
-              },
-              currentIndex: currentIndex,
-              type: BottomNavigationBarType.fixed,
-              items: const [
-                BottomNavigationBarItem(
-                    icon: ImageIcon(
-                      AssetImage('assets/images/icon_radio.png'),
-                      size: 35,
-                    ),
-                    label: 'Radio'),
-                BottomNavigationBarItem(
-                    icon: ImageIcon(
-                      AssetImage('assets/images/icon_sebha.png'),
-                      size: 35,
-                    ),
-                    label: 'Sebha'),
-                BottomNavigationBarItem(
-                    icon: ImageIcon(
-                      AssetImage('assets/images/icon_hadeth.png'),
-                      size: 35,
-                    ),
-                    label: 'Hadeth'),
-                BottomNavigationBarItem(
-                    icon: ImageIcon(
-                      AssetImage('assets/images/icon_quran.png'),
-                      size: 35,
-                    ),
-                    label: 'Quran'),
-              ]),
-          body: SizedBox(
-            width: double.infinity,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Image.asset('assets/images/qur2an_screen_logo.png'),
-                  Column(
-                    children: [
-                      tableHead('عدد الآيات', 'اسم السورة'),
-                      ListView.builder(
-                        itemBuilder: (context, index) =>
-                            tableRow('286', suras[index], index, context),
-                        itemCount: suras.length,
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

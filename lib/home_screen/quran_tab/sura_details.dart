@@ -44,6 +44,7 @@ class _SuraDetailsState extends State<SuraDetails> {
               color: Colors.grey[300],
             ),
             child: ListView.separated(
+              physics: const BouncingScrollPhysics(),
                 separatorBuilder: (context, index) => const Divider(),
                 itemBuilder: (context, index) => Text(
                       textDirection: TextDirection.rtl,

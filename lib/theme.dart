@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyTheme {
   static Color mainGold = const Color.fromRGBO(183, 147, 95, 1.0);
+  static Color secondGold = const Color.fromRGBO(183, 147, 95, 0.60);
   static Color mainBlack = const Color.fromRGBO(36, 36, 36, 1.0);
   static ThemeData lightTheme = ThemeData(
     textTheme: const TextTheme(bodyText1: TextStyle(fontSize: 30)),
