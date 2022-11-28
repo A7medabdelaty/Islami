@@ -78,7 +78,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 padding: const MaterialStatePropertyAll(
                     EdgeInsets.symmetric(horizontal: 15, vertical: 8))),
             onPressed: () {
-              rotation += (360 / 32);
+              rotation += (360 / 33);
               sebhaCounter++;
               if (sebhaCounter == 34) {
                 sebhaCounter = 0;

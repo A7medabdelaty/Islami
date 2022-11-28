@@ -13,6 +13,7 @@ class SuraDetails extends StatefulWidget {
 
 class _SuraDetailsState extends State<SuraDetails> {
   List<String> verses = [];
+  String newString = '';
 
   @override
   Widget build(BuildContext context) {
@@ -43,19 +44,27 @@ class _SuraDetailsState extends State<SuraDetails> {
               borderRadius: BorderRadius.circular(15),
               color: Colors.grey[300],
             ),
-            child: ListView.separated(
+            child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
-                separatorBuilder: (context, index) => const Divider(),
-                itemBuilder: (context, index) => Text(
-                      textDirection: TextDirection.rtl,
-                      verses[index],
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          fontSize: 20,
-                          color: MyTheme.mainBlack,
-                          letterSpacing: .3),
-                    ),
-                itemCount: verses.length),
+              child: Column(
+                children: [
+                  const Text(
+                    'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
+                    style: TextStyle(fontSize: 20, letterSpacing: 0.6),
+                  ),
+                  Divider(),
+                  Text(
+                    textDirection: TextDirection.rtl,
+                    newString,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                        fontSize: 20,
+                        color: MyTheme.mainBlack,
+                        letterSpacing: .3),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       )
@@ -63,9 +72,13 @@ class _SuraDetailsState extends State<SuraDetails> {
   }
 
   void getVerses(index) async {
+    int verseNum = 0;
     String content =
         await rootBundle.loadString('assets/quran_data/${index + 1}.txt');
     verses = content.split('\n');
     setState(() {});
+    verses.forEach((element) {
+      newString += '${element.trim()} [${verseNum += 1}] ';
+    });
   }
 }
