@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/home_screen/quran_tab/sura_details.dart';
 import 'package:islami/theme.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../constants.dart';
 
 class QuranTab extends StatefulWidget {
@@ -32,7 +32,7 @@ class _QuranTabState extends State<QuranTab> {
             ),
             Column(
               children: [
-                tableHead('عدد الآيات', 'اسم السورة'),
+                tableHead(AppLocalizations.of(context)!.verses_count, AppLocalizations.of(context)!.sura_name),
                 ListView.builder(
                   itemBuilder: (context, index) => tableRow(
                       versesCount.isEmpty ? '0' : versesCount[index].trim(),

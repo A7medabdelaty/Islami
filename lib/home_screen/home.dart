@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/hadeth_tab/hadeth_tab.dart';
 import 'package:islami/home_screen/quran_tab/quran_tab.dart';
 import 'package:islami/home_screen/radio_tab/radio_tab.dart';
@@ -15,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     const RadioTab(),
     const SebhaTab(),
-    HadethTab(),
+    const HadethTab(),
     const QuranTab(),
   ];
 
@@ -33,8 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: const Text(
-              'إسلامي',
+            title: Text(
+              AppLocalizations.of(context)!.islamy,
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
