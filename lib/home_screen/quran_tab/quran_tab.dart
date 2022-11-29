@@ -12,24 +12,18 @@ class QuranTab extends StatefulWidget {
   State<QuranTab> createState() => _QuranTabState();
 }
 
+List<String> versesCount = [];
+
 class _QuranTabState extends State<QuranTab> {
-  List<String> versesCount = [];
-
-  void getVersesCount() async {
-    String content =
-        await rootBundle.loadString('assets/quran_data/versesNumber.txt');
-    versesCount = content.split('\n');
-  }
-
   @override
   Widget build(BuildContext context) {
     if (versesCount.isEmpty) {
       getVersesCount();
-      setState(() {});
     }
     return SizedBox(
       width: double.infinity,
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Image.asset('assets/images/qur2an_screen_logo.png'),
@@ -55,6 +49,13 @@ class _QuranTabState extends State<QuranTab> {
         ),
       ),
     );
+  }
+
+  void getVersesCount() async {
+    String content =
+        await rootBundle.loadString('assets/quran_data/versesNumber.txt');
+    versesCount = content.split('\n');
+    setState(() {});
   }
 }
 

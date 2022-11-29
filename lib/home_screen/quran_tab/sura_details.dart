@@ -41,6 +41,7 @@ class _SuraDetailsState extends State<SuraDetails> {
             margin: const EdgeInsets.all(20),
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
+              border: Border.all(color: MyTheme.mainGold, width: 2),
               borderRadius: BorderRadius.circular(15),
               color: Colors.grey[300],
             ),
@@ -77,8 +78,8 @@ class _SuraDetailsState extends State<SuraDetails> {
         await rootBundle.loadString('assets/quran_data/${index + 1}.txt');
     verses = content.split('\n');
     setState(() {});
-    verses.forEach((element) {
+    for (var element in verses) {
       newString += '${element.trim()} [${verseNum += 1}] ';
-    });
+    }
   }
 }
