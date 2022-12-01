@@ -2,5 +2,10 @@
     "islamy": "إسلامي",
     "sura_name": "اسم السورة",
     "verses_count": "عدد الايات",
-    "ahadeth": "الاحاديث"
+    "ahadeth": "الاحاديث",
+    "language" : "اللغة",
+    "theme" : "الوضع",
+    "language_field" : "العربية",
+    "theme_field_light" : "النهاري",
+    "theme_field_dark" : "الليلي"
 }

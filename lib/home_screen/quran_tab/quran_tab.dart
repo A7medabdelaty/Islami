@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/home_screen/quran_tab/sura_details.dart';
 import 'package:islami/theme.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../../constants.dart';
 
 class QuranTab extends StatefulWidget {
@@ -32,7 +33,8 @@ class _QuranTabState extends State<QuranTab> {
             ),
             Column(
               children: [
-                tableHead(AppLocalizations.of(context)!.verses_count, AppLocalizations.of(context)!.sura_name),
+                tableHead(AppLocalizations.of(context)!.verses_count,
+                    AppLocalizations.of(context)!.sura_name),
                 ListView.builder(
                   itemBuilder: (context, index) => tableRow(
                       versesCount.isEmpty ? '0' : versesCount[index].trim(),
@@ -70,15 +72,6 @@ Widget tableHead(String txt1, String txt2) {
       children: [
         Expanded(
           child: Container(
-            alignment: Alignment.center,
-            child: Text(
-              txt1,
-              style: const TextStyle(fontSize: 20),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
             padding: const EdgeInsets.all(3),
             alignment: Alignment.center,
             decoration: BoxDecoration(
@@ -88,6 +81,15 @@ Widget tableHead(String txt1, String txt2) {
             ),
             child: Text(
               txt2,
+              style: const TextStyle(fontSize: 20),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            child: Text(
+              txt1,
               style: const TextStyle(fontSize: 20),
             ),
           ),
@@ -108,15 +110,6 @@ Widget tableRow(String num, String name, int index, context) {
       children: [
         Expanded(
           child: Container(
-            alignment: Alignment.center,
-            child: Text(
-              num,
-              style: const TextStyle(fontSize: 20),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
             padding: const EdgeInsets.all(4),
             alignment: Alignment.center,
             decoration: BoxDecoration(
@@ -126,6 +119,15 @@ Widget tableRow(String num, String name, int index, context) {
             ),
             child: Text(
               name,
+              style: const TextStyle(fontSize: 20),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            child: Text(
+              num,
               style: const TextStyle(fontSize: 20),
             ),
           ),

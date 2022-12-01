@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/home_screen/quran_tab/quran_tab.dart';
+import 'package:islami/provider/main_provider.dart';
 import 'package:islami/theme.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   const SuraDetails({Key? key}) : super(key: key);
@@ -17,13 +19,16 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
+    MainProvider provider = Provider.of<MainProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if (verses.isEmpty) {
       getVerses(args.index);
     }
     return Stack(children: [
       Image.asset(
-        'assets/images/default_bg.png',
+        provider.theme == ThemeMode.light
+            ? 'assets/images/default_bg.png'
+            : 'assets/images/dark_bg.png',
         width: double.infinity,
         fit: BoxFit.cover,
       ),
@@ -32,9 +37,17 @@ class _SuraDetailsState extends State<SuraDetails> {
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back),
-            color: MyTheme.mainBlack,
+            color: provider.theme == ThemeMode.light
+                ? MyTheme.mainBlack
+                : Colors.white,
           ),
-          title: Text(args.suraName),
+          title: Text(
+            args.suraName,
+            style: TextStyle(
+                color: provider.theme == ThemeMode.light
+                    ? MyTheme.mainBlack
+                    : Colors.white),
+          ),
         ),
         body: Center(
           child: Container(
@@ -43,7 +56,9 @@ class _SuraDetailsState extends State<SuraDetails> {
             decoration: BoxDecoration(
               border: Border.all(color: MyTheme.mainGold, width: 2),
               borderRadius: BorderRadius.circular(15),
-              color: Colors.grey[300],
+              color: provider.theme == ThemeMode.light
+                  ? Colors.grey[300]
+                  : MyTheme.secondDark,
             ),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
@@ -53,14 +68,18 @@ class _SuraDetailsState extends State<SuraDetails> {
                     'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
                     style: TextStyle(fontSize: 20, letterSpacing: 0.6),
                   ),
-                  const Divider(),
+                  Divider(
+                    color: MyTheme.mainGold,
+                  ),
                   Text(
                     textDirection: TextDirection.rtl,
                     newString,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.subtitle1?.copyWith(
                         fontSize: 20,
-                        color: MyTheme.mainBlack,
+                        color: provider.theme == ThemeMode.light
+                            ? MyTheme.mainBlack
+                            : MyTheme.secondYellowDark,
                         letterSpacing: .3),
                   ),
                 ],

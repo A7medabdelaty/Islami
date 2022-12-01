@@ -26,7 +26,7 @@ class RadioTab extends StatelessWidget {
             IconButton(
               splashRadius: 25,
               icon: Icon(
-                Icons.skip_previous,
+                Icons.skip_next,
                 size: 35,
                 color: MyTheme.mainGold,
               ),
@@ -44,7 +44,7 @@ class RadioTab extends StatelessWidget {
             IconButton(
               splashRadius: 25,
               icon: Icon(
-                Icons.skip_next,
+                Icons.skip_previous,
                 size: 35,
                 color: MyTheme.mainGold,
               ),

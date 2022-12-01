@@ -2,5 +2,10 @@
     "islamy": "Islamy",
     "sura_name": "Sura Name",
     "verses_count": "Verses Count",
-    "ahadeth": "Ahadeth"
+    "ahadeth": "Ahadeth",
+    "language" : "Language",
+    "theme" : "Theme",
+    "language_field" : "English",
+    "theme_field_light" : "light",
+    "theme_field_dark" : "dark"
 }

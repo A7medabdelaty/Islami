@@ -4,10 +4,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islami/home_screen/hadeth_tab/hadeth_details.dart';
 import 'package:islami/home_screen/home.dart';
 import 'package:islami/home_screen/quran_tab/sura_details.dart';
+import 'package:islami/provider/main_provider.dart';
 import 'package:islami/theme.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(create: (context) => MainProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,8 +18,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    MainProvider provider = Provider.of<MainProvider>(context);
     return MaterialApp(
-      locale: const Locale('ar'),
+      locale: Locale(provider.language),
       routes: {
         SuraDetails.routeName: (context) => const SuraDetails(),
         HadethDetails.routeName: (context) => const HadethDetails(),
@@ -35,7 +38,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme,
       darkTheme: MyTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: provider.theme,
       title: 'Islamy',
       home: const HomeScreen(),
     );
