@@ -37,16 +37,9 @@ class _SuraDetailsState extends State<SuraDetails> {
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back),
-            color: provider.theme == ThemeMode.light
-                ? MyTheme.mainBlack
-                : Colors.white,
           ),
           title: Text(
             args.suraName,
-            style: TextStyle(
-                color: provider.theme == ThemeMode.light
-                    ? MyTheme.mainBlack
-                    : Colors.white),
           ),
         ),
         body: Center(
@@ -64,9 +57,9 @@ class _SuraDetailsState extends State<SuraDetails> {
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     'بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
-                    style: TextStyle(fontSize: 20, letterSpacing: 0.6),
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Divider(
                     color: MyTheme.mainGold,
@@ -75,12 +68,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                     textDirection: TextDirection.rtl,
                     newString,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                        fontSize: 20,
-                        color: provider.theme == ThemeMode.light
-                            ? MyTheme.mainBlack
-                            : MyTheme.secondYellowDark,
-                        letterSpacing: .3),
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
               ),

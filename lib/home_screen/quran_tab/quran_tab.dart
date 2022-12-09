@@ -74,17 +74,13 @@ Widget tableHead(String txt1, String txt2) {
           child: Container(
             padding: const EdgeInsets.all(3),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(width: 2, color: MyTheme.mainGold),
-              ),
-            ),
             child: Text(
               txt2,
               style: const TextStyle(fontSize: 20),
             ),
           ),
         ),
+        Container(width: 2,height: 40,color: MyTheme.mainGold,padding: EdgeInsets.zero,child: const Text(""),),
         Expanded(
           child: Container(
             alignment: Alignment.center,
@@ -112,17 +108,13 @@ Widget tableRow(String num, String name, int index, context) {
           child: Container(
             padding: const EdgeInsets.all(4),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(width: 2, color: MyTheme.mainGold),
-              ),
-            ),
             child: Text(
               name,
               style: const TextStyle(fontSize: 20),
             ),
           ),
         ),
+        Container(width: 2,height: 45,color: MyTheme.mainGold,padding: EdgeInsets.zero,child: const Text(""),),
         Expanded(
           child: Container(
             alignment: Alignment.center,

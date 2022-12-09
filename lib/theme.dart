@@ -20,16 +20,23 @@ class MyTheme {
         onBackground: Colors.white,
         surface: Colors.grey,
         onSurface: Colors.white),
-    textTheme: const TextTheme(bodyText1: TextStyle(fontSize: 30)),
+    textTheme: TextTheme(
+      subtitle1: TextStyle(
+        fontSize: 20,
+        color: MyTheme.mainBlack,
+        letterSpacing: 0.3,
+      ),
+    ),
     scaffoldBackgroundColor: Colors.transparent,
     iconTheme: IconThemeData(color: MyTheme.mainGold, size: 35),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(color: MyTheme.mainBlack),
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       centerTitle: true,
       titleTextStyle: TextStyle(
         fontSize: 30,
-        color: Color.fromRGBO(36, 36, 36, 1.0),
+        color: MyTheme.mainBlack,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -52,16 +59,23 @@ class MyTheme {
         onBackground: Colors.white,
         surface: Colors.grey,
         onSurface: Colors.white),
-    textTheme: const TextTheme(bodyText1: TextStyle(fontSize: 30)),
+    textTheme: TextTheme(
+      subtitle1: TextStyle(
+        fontSize: 20,
+        color: MyTheme.secondYellowDark,
+        letterSpacing: 0.3,
+      ),
+    ),
     scaffoldBackgroundColor: Colors.transparent,
     iconTheme: IconThemeData(color: MyTheme.mainGold, size: 35),
     appBarTheme: const AppBarTheme(
+      iconTheme: IconThemeData(color: Colors.white),
       backgroundColor: Colors.transparent,
       elevation: 0.0,
       centerTitle: true,
       titleTextStyle: TextStyle(
         fontSize: 30,
-        color: Color.fromRGBO(36, 36, 36, 1.0),
+        color: Colors.white,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

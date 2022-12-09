@@ -33,17 +33,21 @@ class _HomeScreenState extends State<HomeScreen> {
     return Stack(
       children: [
         Image.asset(
-          provider.theme == ThemeMode.light ? 'assets/images/default_bg.png' : 'assets/images/dark_bg.png',
+          provider.theme == ThemeMode.light
+              ? 'assets/images/default_bg.png'
+              : 'assets/images/dark_bg.png',
           width: double.infinity,
           fit: BoxFit.cover,
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            actionsIconTheme: IconThemeData(color: provider.theme == ThemeMode.light ? MyTheme.mainBlack : Colors.white),
+            actionsIconTheme: IconThemeData(
+                color: provider.theme == ThemeMode.light
+                    ? MyTheme.mainBlack
+                    : Colors.white),
             title: Text(
               AppLocalizations.of(context)!.islamy,
-              style: TextStyle(color: provider.theme == ThemeMode.light ? MyTheme.mainBlack : Colors.white),
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(

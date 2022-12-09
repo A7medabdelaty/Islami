@@ -35,7 +35,7 @@ class _HadethTabState extends State<HadethTab> {
                           BorderSide(color: MyTheme.mainGold, width: 2))),
               child: Text(
                 AppLocalizations.of(context)!.ahadeth,
-                style: TextStyle(fontSize: 25),
+                style: const TextStyle(fontSize: 25),
               ),
             ),
             const SizedBox(

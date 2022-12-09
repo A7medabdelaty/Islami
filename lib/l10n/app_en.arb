@@ -6,6 +6,6 @@
     "language" : "Language",
     "theme" : "Theme",
     "language_field" : "English",
-    "theme_field_light" : "light",
-    "theme_field_dark" : "dark"
+    "theme_field_light" : "Light",
+    "theme_field_dark" : "Dark"
 }

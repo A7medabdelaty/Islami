@@ -26,16 +26,9 @@ class HadethDetails extends StatelessWidget {
           leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back),
-            color: provider.theme == ThemeMode.light
-                ? MyTheme.mainBlack
-                : Colors.white,
           ),
           title: Text(
             args.title,
-            style: TextStyle(
-                color: provider.theme == ThemeMode.light
-                    ? MyTheme.mainBlack
-                    : Colors.white),
           ),
         ),
         body: Center(
@@ -57,12 +50,7 @@ class HadethDetails extends StatelessWidget {
                     textDirection: TextDirection.rtl,
                     args.hadethContent.join(" "),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                        fontSize: 20,
-                        color: provider.theme == ThemeMode.light
-                            ? MyTheme.mainBlack
-                            : MyTheme.secondYellowDark,
-                        letterSpacing: .3),
+                    style: Theme.of(context).textTheme.subtitle1
                   ),
                 ],
               ),
